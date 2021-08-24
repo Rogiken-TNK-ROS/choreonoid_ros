@@ -118,7 +118,6 @@ bool RobotHWCnoid::initSim(const ros::NodeHandle& nh, cnoid::ControllerIO* args)
           pj_if_.registerHandle(joint_handle_);
           break;
         case Link::JOINT_VELOCITY:
-        case Link::JOINT_SURFACE_VELOCITY:
           ctrl_types_[i] = ControlType::VELOCITY;
           joint_handle_ = hi::JointHandle(js_if_.getHandle(joint_names_[i]), &command_[i].velocity);
           vj_if_.registerHandle(joint_handle_);
