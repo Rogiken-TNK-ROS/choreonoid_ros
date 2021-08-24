@@ -31,17 +31,17 @@ class ROSControlItem : public ControllerItem
 public:
   static void initializeClass(ExtensionManager* ext);
 
-  ROSControlItem(void);
+  ROSControlItem();
   ROSControlItem(const ROSControlItem& org);
 
   virtual ~ROSControlItem();
 
   virtual bool initialize(ControllerIO* io) override;
-  virtual bool start(void) override;
-  virtual void input(void) override;
-  virtual bool control(void) override;
-  virtual void output(void) override;
-  virtual void stop(void) override;
+  virtual bool start() override;
+  virtual void input() override;
+  virtual bool control() override;
+  virtual void output() override;
+  virtual void stop() override;
 
   virtual double timeStep() const override
   {
@@ -49,7 +49,7 @@ public:
   };
 
 protected:
-  virtual Item* doDuplicate(void) const;
+  virtual Item* doDuplicate() const;
   virtual bool store(Archive& archive);
   virtual bool restore(const Archive& archive);
   void doPutProperties(PutPropertyFunction& putProperty);
