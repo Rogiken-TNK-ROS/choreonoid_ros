@@ -62,8 +62,10 @@ private:
 
   ros::NodeHandle nh_;
   std::shared_ptr<pluginlib::ClassLoader<hardware_interface::RobotHWSim<cnoid::ControllerIO*>>> rbt_hw_sim_loader_;
-  boost::shared_ptr<hardware_interface::RobotHWSim<cnoid::ControllerIO*>> rbt_hw_sim_;
   std::shared_ptr<controller_manager::ControllerManager> manager_;
+
+  // we have to use boost::shared_ptr since ROS plugin system uses it
+  boost::shared_ptr<hardware_interface::RobotHWSim<cnoid::ControllerIO*>> rbt_hw_sim_;
 
   std::string namespace_{ "" };
 };
